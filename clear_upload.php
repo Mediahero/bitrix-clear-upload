@@ -19,7 +19,7 @@ Usage: php clear_upload.php [--delete-files] /path/to/document/root
 
 Удалить все неиспользуемые файлы из каталога upload/iblock:
     
-    php --delete-files /var/www/example.com
+    php clear_upload.php --delete-files /var/www/example.com
 
 USAGE;
     exit(0);
