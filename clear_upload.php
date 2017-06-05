@@ -71,14 +71,12 @@ $count = 0;
 while (false !== ($subDirName = readdir($hRootDir))) {
     if ($subDirName == '.' || $subDirName == '..') 
         continue;
-    $filesCount = 0;
     $subDirPath = "$rootDirPath/$subDirName";
     $hSubDir = opendir($subDirPath);    
     while (false !== ($fileName = readdir($hSubDir))) {
         if ($fileName == '.' || $fileName == '..') 
             continue;
         if (array_key_exists($fileName, $arFilesCache)) {
-            $filesCount++;
             continue;
         }
         $fullPath = "$subDirPath/$fileName";
@@ -93,13 +91,13 @@ while (false !== ($subDirName = readdir($hRootDir))) {
 			}
 		}
         else {
-            $filesCount++;
             echo $fullPath . PHP_EOL;
         }
     }
     closedir($hSubDir);
-    if ($command=='delete-files' && !$filesCount) {
-        rmdir($subDirPath);
+    if (!empty($command)) {
+		//delete empty directory
+		@rmdir($subDirPath);
     }
 }
 closedir($hRootDir);
