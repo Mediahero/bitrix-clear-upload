@@ -56,7 +56,7 @@ define("NO_KEEP_STATISTIC", true);
 define("NOT_CHECK_PERMISSIONS", true); 
  
 $prolog = $_SERVER['DOCUMENT_ROOT'] . "/bitrix/modules/main/include/prolog_before.php";
-if (file_exists($prolog)) include($prolog); else die("Указанный катало не является корневой директорией сайта на 1С-Битрикс" . PHP_EOL);
+if (file_exists($prolog)) include($prolog); else die("Указанный каталог не является корневой директорией сайта на 1С-Битрикс" . PHP_EOL);
 
 // Формируем кэш имен файлов на основе таблицы b_file.
 $arFilesCache = array();
